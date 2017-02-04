@@ -56,7 +56,7 @@ translate :: Paint  -- ^ coloring scheme
           -> T.Text -- ^ escape sequence
 translate (Paint fg bg flags) = T.concat [T.pack "\x1b[", codes, T.pack "m"]
   where
-    codes  = T.intercalate ";" $ map (T.pack . show) codes
+    codes  = T.intercalate (T.singleton ';') $ map (T.pack . show) codes'
     codes' = map flagCode flags ++ [fgCode fg] ++ [bgCode bg]
 
 -- | Apply a color scheme to a text instance.
