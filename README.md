@@ -29,15 +29,16 @@ import Text.Paint
 import qualified Data.Text as T
 import qualified Data.Text.IO as T
 
-colorize :: T.Text
-         -> T.Text
+-- | Apply the paint to a line depending on its prefix.
+colorize :: T.Text -- ^ line
+         -> T.Text -- ^ colored line
 colorize text
   | T.isPrefixOf "ERROR"   text = paint red    text
   | T.isPrefixOf "WARNING" text = paint yellow text
   | otherwise                   = text
   where
-    red    = Paint White   Red     [Underline]
-    yellow = Paint Yellow  Default []
+    red    = Paint White  Red     [Underline]
+    yellow = Paint Yellow Default []
 
 main :: IO ()
 main = fmap (T.unlines . map colorize . T.lines) T.getContents >>= T.putStr
