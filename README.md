@@ -3,7 +3,9 @@ The `paint` module implements the essential subset of the ANSI terminal codes
 that provide various text styling features, such as underlining, blinking or
 different foreground and background coloring.
 
-TODO reason
+The motivation behind this module is to wrap the historic ANSI color codes
+behind a simple and readable API that would allow clean and effect-bounded
+styling of output based on the `text` module.
 
 ## Build & install
 There are two standard ways of obtaining the module:
