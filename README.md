@@ -1,4 +1,5 @@
 # Text.Paint
+[![Build Status](https://travis-ci.org/lovasko/paint.svg?branch=master)](https://travis-ci.org/lovasko/paint)
 The `paint` module implements the essential subset of the ANSI terminal codes
 that provide various text styling features, such as underlining, blinking or
 different foreground and background coloring.
