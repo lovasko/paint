@@ -16,7 +16,31 @@ The library depends on two packages:
  * `text`
 
 ## API
-TODO
+### Types
+The `Color` type is a simple enumeration of all 16 supported colors, plus the
+setting to use the `Default` color set by the terminal. These colors can be
+used for both the foreground and background layers. The full listing of
+available color hues is as follows: `Black`, `Red`, `Green`, `Yellow`, `Blue`,
+`Magenta`, `Cyan`, `LightGray`, `DarkGray`, `LightRed`, `LightGreen`,
+`LightYellow`, `LightBlue`, `LightMagenta`, `LightCyan`, `White`, `Default`.
+
+The `Flag` type enumerates features that are applicable to only one of the
+layers, or to both at the same time. Currently there are three supported flags:
+`Bold` for bold text (beware that some implementations treat this as a slightly
+lighter version of selected colors), `Underline` for underlining the text and
+`Blink` to achieve periodic (dis)appearance of the text (both layers) with a
+frequency of less than 150 beats per minute.
+
+The overarching type that defines the resulting styling combines the previous
+two types is `Paint`, which is defined as `data Paint = Paint Color Color
+[Flag]`.
+
+### Functions
+The only function exported by the `Text.Paint` module is `paint` with the
+following prototype: `paint :: Paint -> Text -> Text`. This function can be
+used to apply selected styling to a particular `Text`. All changes are reset to
+the default state at the end of such text object and therefore the styling
+effect is limited to the said `Text` instance.
 
 ## Example
 The following code will act as a UNIX filter, while adding yellow and
