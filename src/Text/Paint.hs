@@ -1,7 +1,7 @@
 {- |
 Module      : Text.Paint
 Description : Colorization of command-line output
-Copyright   : (c) 2017 Daniel Lovasko
+Copyright   : (c) 2017-2020 Daniel Lovasko
 License     : BSD2
 
 Maintainer  : Daniel Lovasko <daniel.lovasko@gmail.com>
