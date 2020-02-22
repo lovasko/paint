@@ -51,6 +51,7 @@ data Flag
 -- setting for text styling.
 data Paint
   = Paint Color Color [Flag]
+  deriving (Eq, Ord, Show)
 
 -- | Convert a flag into an ANSI code.
 flagCode
