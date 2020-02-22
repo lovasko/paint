@@ -1,7 +1,19 @@
-import Text.Paint as P
+{- |
+Module      : Main
+Description : Example that draws a rainbow.
+Copyright   : (c) 2017-2020 Daniel Lovasko
+License     : BSD2
+
+Maintainer  : Daniel Lovasko <daniel.lovasko@gmail.com>
+Stability   : stable
+Portability : portable
+-}
+
+import qualified Text.Paint as P
 
 import Data.Maybe (maybe)
 import Data.List (find)
+
 
 -- | Approximation of rainbow rings.
 rainbow
@@ -37,7 +49,7 @@ cellColor row col = maybe P.White snd (find match rainbow)
   where
     match (idx, _) = idx + radius == dist
     dist           = floor $ sqrt $ fromIntegral $ line
-    line           =  ((row - height) ^ 2) + ((col - (div width 2)) ^ 2)
+    line           = ((row - height) ^ 2) + ((col - (div width 2)) ^ 2)
 
 -- | Create a single row of the image.
 createRow
