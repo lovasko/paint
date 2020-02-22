@@ -13,11 +13,10 @@ module Text.Paint
 ( Color(..) -- *
 , Flag(..)  -- *
 , Paint(..) -- *
-, paint     -- Paint -> Text -> Text
+, paint     -- Paint -> String -> String
 ) where
 
-import qualified Data.Text as T
-
+import Data.List (intercalate)
 
 -- | Foreground and background color.
 data Color
@@ -108,15 +107,15 @@ bgCode White   = 107
 -- | Convert a coloring scheme into an ANSI escape sequence.
 translate
   :: Paint  -- ^ coloring scheme
-  -> T.Text -- ^ escape sequence
-translate (Paint fg bg flags) = T.concat [T.pack "\x1b[", codes, T.pack "m"]
+  -> String -- ^ escape sequence
+translate (Paint fg bg flags) = concat ["\x1b[", codes, "m"]
   where
-    codes  = T.intercalate (T.singleton ';') $ map (T.pack . show) codes'
+    codes  = intercalate ";" $ map show codes'
     codes' = map flagCode flags ++ [fgCode fg] ++ [bgCode bg]
 
 -- | Apply a color scheme to a text instance.
 paint
   :: Paint  -- ^ coloring scheme
-  -> T.Text -- ^ plain text
-  -> T.Text -- ^ colorized text
-paint pnt text = T.concat [translate pnt, text, T.pack "\x1b[0m"]
+  -> String -- ^ plain text
+  -> String -- ^ colorized text
+paint pnt text = concat [translate pnt, text, "\x1b[0m"]

@@ -11,24 +11,23 @@ Portability : portable
 
 {-# LANGUAGE OverloadedStrings #-}
 
-import Text.Paint
-import qualified Data.Text as T
-import qualified Data.Text.IO as T
+import Data.List (isSubsequenceOf)
+import qualified Text.Paint as P
 
 
 -- | Apply the paint to a line depending on its prefix.
 processEntry
-  :: T.Text -- ^ line
-  -> T.Text -- ^ colored line
+  :: String -- ^ line
+  -> String -- ^ colored line
 processEntry text
-  | T.isPrefixOf "ERROR" text = paint red    text
-  | T.isPrefixOf "WARN"  text = paint yellow text
-  | otherwise                 = text
+  | isSubsequenceOf "ERROR" text = P.paint red    text
+  | isSubsequenceOf "WARN"  text = P.paint yellow text
+  | otherwise                    = text
   where
-    red    = Paint White  Maroon  [Underline]
-    yellow = Paint Yellow Default []
+    red    = P.Paint P.White  P.Maroon  [P.Underline]
+    yellow = P.Paint P.Yellow P.Default []
 
 -- | Highlight errors and warnings in logs.
 main
   :: IO () -- ^ action
-main = fmap (T.unlines . map processEntry . T.lines) T.getContents >>= T.putStr
+main = fmap (unlines . map processEntry . lines) getContents >>= putStr
