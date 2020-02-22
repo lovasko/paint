@@ -48,8 +48,8 @@ cellColor
 cellColor row col = maybe P.White snd (find match rainbow)
   where
     match (idx, _) = idx + radius == dist
-    dist           = floor $ sqrt $ fromIntegral $ line
-    line           = ((row - height) ^ 2) + ((col - (div width 2)) ^ 2)
+    dist           = floor $ sqrt $ fromIntegral line
+    line           = ((row - height) ^ 2) + ((col - div width 2) ^ 2)
 
 -- | Create a single row of the image.
 createRow

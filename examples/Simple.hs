@@ -33,7 +33,7 @@ justifyLeft
   -> String -- ^ new string
 justifyLeft width str
   | len > width = str
-  | otherwise   = str ++ (replicate (width - len) ' ')
+  | otherwise   = str ++ replicate (width - len) ' '
   where len = length str
 
 -- | Print a single color entry containing the name.
