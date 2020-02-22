@@ -9,9 +9,8 @@ Stability   : stable
 Portability : portable
 -}
 
-{-# LANGUAGE OverloadedStrings #-}
-
 import qualified Text.Paint as P
+
 
 -- | All colors.
 colors
