@@ -7,12 +7,15 @@ different foreground and background coloring.
 
 The motivation behind this module is to wrap the historic ANSI color codes
 behind a simple and readable API that would allow clean and effect-bounded
-styling of output based on the `text` module.
+styling of output based on the `String` type.
 
-## Build & install
+## Build & Install
 There are two standard ways of obtaining the module:
  * by cloning the git repository: `git clone https://github.com/lovasko/paint`
  * by using the central Hackage server: `cabal install paint`
+
+In order to build the library and example executables, run:
+ * `cabal build`
 
 ### Dependencies
 The library depends on two packages:
