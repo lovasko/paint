@@ -55,7 +55,7 @@ cellColor row col = maybe P.White snd (find match rainbow)
 createRow
   :: Int    -- ^ row index
   -> String -- ^ row text
-createRow row = concat $ map cell [0 .. width]
+createRow row = concatMap cell [0 .. width]
   where
     cell col = P.paint (P.Paint (cellColor row col) P.White []) [block]
 
@@ -63,5 +63,5 @@ createRow row = concat $ map cell [0 .. width]
 main
   :: IO () -- ^ action
 main = do
-  mapM_ putStrLn (map createRow [0 .. height])
+  mapM_ (putStrLn . createRow) [0 .. height]
   putStrLn $ P.paint (P.Paint P.Green P.White []) $ replicate (width + 1) block
