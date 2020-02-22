@@ -24,9 +24,26 @@ The library depends on two packages:
 The `Color` type is a simple enumeration of all 16 supported colors, plus the
 setting to use the `Default` color set by the terminal. These colors can be
 used for both the foreground and background layers. The full listing of
-available color hues is as follows: `Black`, `Red`, `Green`, `Yellow`, `Blue`,
-`Magenta`, `Cyan`, `LightGray`, `DarkGray`, `LightRed`, `LightGreen`,
-`LightYellow`, `LightBlue`, `LightMagenta`, `LightCyan`, `White`, `Default`.
+available color hues is as follows:
+ * `Black`
+ * `Maroon`
+ * `Green`
+ * `Olive`
+ * `Navy`
+ * `Purple`
+ * `Teal`
+ * `Silver`
+ * `Gray`
+ * `Red`
+ * `Lime`
+ * `Yellow`
+ * `Blue`
+ * `Fuchsia`
+ * `Aqua`
+ * `White`
+
+The default color set for the terminal can be accessed using the `Default`
+constructor.
 
 The `Flag` type enumerates features that are applicable to only one of the
 layers, or to both at the same time. Currently there are three supported flags:
@@ -65,7 +82,7 @@ colorize text
   | T.isPrefixOf "WARNING" text = paint yellow text
   | otherwise                   = text
   where
-    red    = Paint White  Red     [Underline]
+    red    = Paint White  Maroon  [Underline]
     yellow = Paint Yellow Default []
 
 main :: IO ()

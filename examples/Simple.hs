@@ -20,10 +20,10 @@ import qualified Data.Text.IO as T
 colors
   :: [P.Color] -- ^ all colors
 colors =
-  [ P.Black,        P.Red,          P.Green,       P.Yellow
-  , P.Blue,         P.Magenta,      P.Cyan,        P.LightGray
-  , P.DarkGray,     P.LightRed,     P.LightGreen,  P.LightYellow
-  , P.LightBlue,    P.LightMagenta, P.LightCyan,   P.White]
+  [ P.Black, P.Maroon,  P.Green, P.Olive
+  , P.Navy,  P.Purple,  P.Teal,  P.Silver
+  , P.Gray,  P.Red,     P.Lime,  P.Yellow
+  , P.Blue,  P.Fuchsia, P.Aqua,  P.White]
 
 -- | Compute the maximum length of all color names.
 width

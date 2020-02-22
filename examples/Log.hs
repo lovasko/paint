@@ -25,7 +25,7 @@ processEntry text
   | T.isPrefixOf "WARN"  text = paint yellow text
   | otherwise                 = text
   where
-    red    = Paint White  Red     [Underline]
+    red    = Paint White  Maroon  [Underline]
     yellow = Paint Yellow Default []
 
 -- | Highlight errors and warnings in logs.
